@@ -8,30 +8,32 @@ const womenData = {
   ty: {
     key: "ty",
     name: "Nguyễn Thị Ty",
-    badge: "Dịu Dàng & Tinh Tế",
-    icon: "fa-spa",
-    gradient: "linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)",
-    glowColor: "rgba(255, 117, 140, 0.45)",
-    role: "Tươi tắn • Duyên dáng • Tràn đầy năng lượng",
-    greeting: "Thân gửi chị / bạn Nguyễn Thị Ty,",
-    quote: "Nụ cười của bạn là ánh nắng ban mai thắp sáng mỗi ngày!",
-    personalLetter: "Chúc Nguyễn Thị Ty một ngày 20/10 ngập tràn niềm vui và sự bất ngờ ngọt ngào. Mong bạn luôn giữ được nét duyên dáng, sức khỏe dồi dào, tâm hồn luôn an nhiên và mỗi ngày trôi qua đều là một ngày hạnh phúc viên mãn!",
+    badge: "Mảnh Ghép Yêu Thương",
+    rankTitle: "RANK THÁCH ĐẤU • CHIẾN THẦN TÌNH YÊU 🔥",
+    icon: "fa-heart",
+    gradient: "linear-gradient(135deg, #ff4b72 0%, #ff758c 100%)",
+    glowColor: "rgba(255, 75, 114, 0.45)",
+    role: "T.Y = Tình Yêu • Duyên dáng • Ngọt ngào đong đầy",
+    greeting: "Thân gửi bạn Ty – 'Tình Yêu' to bự của mọi người! 💖",
+    quote: "T.Y không chỉ là một cái tên, mà là viết tắt của hai tiếng 'Tình Yêu' ngọt ngào và ấm áp nhất!",
+    personalLetter: "Chúc 'Tình Yêu' (Ty) một ngày 20/10 ngập tràn hạnh phúc và những điều bất ngờ ngọt ngào nhất! Đúng như cái tên đặc biệt của bạn, chúc bạn luôn là tình yêu to lớn, luôn được nâng niu, chiều chuộng và bao bọc trong sự yêu thương viên mãn của gia đình và những người thân yêu!",
     wishes: [
-      "🌸 Luôn giữ nét tươi trẻ, duyên dáng và nụ cười rạng rỡ như ánh mai.",
-      "💖 Sức khỏe dồi dào, gia đình ấm êm, hạnh phúc đong đầy trọn vẹn.",
-      "✨ Công việc thuận buồm xuôi gió, luôn gặp quý nhân phù trợ và thành công.",
-      "🎁 Mỗi khoảnh khắc trong cuộc sống đều được nâng niu và yêu thương."
+      "💖 Đúng như tên gọi 'T.Y', chúc bạn luôn là tình yêu ngọt ngào, được nâng niu và cưng chiều mỗi ngày.",
+      "🌸 Nụ cười luôn tỏa nắng rạng rỡ, mang theo nguồn năng lượng tích cực lan tỏa đến mọi người.",
+      "✨ Sức khỏe dồi dào, tâm hồn an nhiên, trẻ mãi không già và mỗi ngày đều ngập tràn niềm vui.",
+      "🎁 Công việc thuận buồm xuôi gió, vạn sự như ý và mọi ước mơ ấp ủ đều sớm thành hiện thực."
     ]
   },
   lien: {
     key: "lien",
     name: "Trần Liên",
     badge: "Thanh Lịch & Bản Lĩnh",
+    rankTitle: "RANK HUYỀN THOẠI • CHIẾN THẦN BẢN LĨNH 🪷",
     icon: "fa-feather-pointed",
     gradient: "linear-gradient(135deg, #845ec2 0%, #d65db1 100%)",
     glowColor: "rgba(132, 94, 194, 0.45)",
     role: "Khéo léo • Tự tin • Tràn đầy yêu thương",
-    greeting: "Thân gửi chị / bạn Trần Liên,",
+    greeting: "Thân gửi bạn Trần Liên,",
     quote: "Nhẹ nhàng như đóa sen thơm, kiên cường vượt qua mọi thử thách cuộc sống.",
     personalLetter: "Chúc Trần Liên có một ngày 20/10 thật tuyệt vời! Như đóa sen thanh tao vươn mình tỏa hương ngào ngạt, chúc bạn luôn giữ được sự an yên trong tâm hồn, sự vững vàng trong công việc và ngập tràn tình yêu thương từ những người xung quanh.",
     wishes: [
@@ -45,11 +47,12 @@ const womenData = {
     key: "vang",
     name: "Trần Ngân Vàng",
     badge: "Quý Phái & Tỏa Sáng",
+    rankTitle: "RANK ĐẠI KIỆN TƯỚNG • CHIẾN THẦN PHÚ QUÝ 💎",
     icon: "fa-gem",
     gradient: "linear-gradient(135deg, #ff9671 0%, #ffc75f 100%)",
     glowColor: "rgba(255, 199, 95, 0.45)",
     role: "Rạng ngời • Quý phái • May mắn đong đầy",
-    greeting: "Thân gửi chị / bạn Trần Ngân Vàng,",
+    greeting: "Thân gửi bạn Trần Ngân Vàng,",
     quote: "Tựa ánh vàng ngân lấp lánh, mang phú quý, bình an và thịnh vượng đến muôn nơi!",
     personalLetter: "Tên bạn như một bảo vật quý giá! Chúc Trần Ngân Vàng ngày 20/10 ngập tràn may mắn, tài lộc dồi dào, nhan sắc ngày càng thăng hoa rạng rỡ và luôn là viên ngọc quý tỏa sáng lấp lánh trong mắt mọi người.",
     wishes: [
@@ -62,19 +65,20 @@ const womenData = {
   linh: {
     key: "linh",
     name: "Hồ Thị Diệu Linh",
-    badge: "Ngọt Ngào & Tươi Trẻ",
-    icon: "fa-wand-magic",
+    badge: "Bản Lĩnh Nơi Xứ Kim Chi",
+    rankTitle: "RANK THÁCH ĐẤU • CHIẾN THẦN XỨ HÀN 🇰🇷",
+    icon: "fa-plane-departure",
     gradient: "linear-gradient(135deg, #00c9a7 0%, #845ec2 100%)",
     glowColor: "rgba(0, 201, 167, 0.45)",
-    role: "Hồn nhiên • Diệu kỳ • Tràn ngập niềm vui",
-    greeting: "Thân gửi chị / bạn Hồ Thị Diệu Linh,",
-    quote: "Vẻ đẹp trong trẻo, trí tuệ linh hoạt và tâm hồn ngọt ngào!",
-    personalLetter: "Chúc Diệu Linh có một ngày lễ 20/10 ngập tràn những điều kỳ diệu! Mong cho tuổi trẻ của bạn luôn rực rỡ, những ước mơ ấp ủ đều sớm thành hiện thực và nụ cười ngọt ngào của bạn sẽ luôn tỏa sáng mỗi ngày!",
+    role: "Du học sinh Hàn Quốc • Bản lĩnh • Rạng rỡ thanh xuân",
+    greeting: "Thân gửi bạn Hồ Thị Diệu Linh từ phương xa! 🇰🇷✨",
+    quote: "Dù cách xa ngàn dặm nơi xứ Hàn, ở quê nhà mọi người vẫn luôn dõi theo và tự hào về bạn!",
+    personalLetter: "Gửi ngàn đóa hoa ấm áp vượt biên giới đến cô du học sinh bản lĩnh của chúng ta! 20/10 nơi xứ Hàn có lẽ trời đã se lạnh, hãy luôn nhớ mặc thật ấm, ăn uống đầy đủ và giữ gìn sức khỏe nhé. Hành trình xa quê học tập có thể có những lúc vất vả, nhớ nhà, nhưng hãy luôn tự tin, kiên cường và tỏa sáng rực rỡ. Mọi người ở quê nhà luôn tự hào và chờ đón ngày Linh trở về trong thành công rực rỡ!",
     wishes: [
-      "✨ Nét đẹp trong trẻo, nụ cười tỏa nắng làm bừng sáng mọi không gian.",
-      "🌈 Mọi ước mơ, ấp ủ đều sớm đơm hoa kết trái một cách diệu kỳ.",
-      "🌷 Thanh xuân rực rỡ, mỗi ngày trôi qua đều là một trang nhật ký tươi đẹp.",
-      "💌 Nhận thật nhiều hoa tươi, quà xinh và tình cảm nồng nàn nhất."
+      "🇰🇷 Giữ gìn sức khỏe thật tốt, mùa lạnh nhớ mặc ấm và luôn ăn uống đầy đủ nơi xứ người.",
+      "🎓 Học tập thật xuất sắc trên giảng đường Hàn Quốc, tích lũy nhiều trải nghiệm quý báu.",
+      "🌟 Luôn tự tin, bản lĩnh, nụ cười rạng rỡ trên môi và sớm gặt hái thành công lớn.",
+      "💌 Dù ở xa ngàn dặm, ở quê nhà mọi người vẫn luôn yêu thương, tự hào và đồng hành cùng Linh!"
     ]
   }
 };
@@ -131,6 +135,7 @@ const userChipName = document.getElementById("userChipName");
 const changeUserBtn = document.getElementById("changeUserBtn");
 
 // Showcase elements
+const rankTitle = document.getElementById("rankTitle");
 const showcaseBadge = document.getElementById("showcaseBadge");
 const showcaseAvatar = document.getElementById("showcaseAvatar");
 const showcaseName = document.getElementById("showcaseName");
@@ -232,6 +237,9 @@ function renderPersonStage(person) {
   userChipName.textContent = person.name;
 
   // 2. Update Showcase Stage details
+  if (rankTitle && person.rankTitle) {
+    rankTitle.textContent = person.rankTitle;
+  }
   showcaseBadge.textContent = person.badge;
   showcaseName.textContent = person.name;
   showcaseRole.innerHTML = person.role;
@@ -262,6 +270,101 @@ function renderPersonStage(person) {
   singleWomanStage.style.animation = "modalPopIn 0.45s ease";
 }
 
+/* ========================================================
+   FREE FIRE (PHI PHAI) SOUND & BOOYAH INTERACTION
+   ======================================================== */
+function playBooyahSound() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+
+    // Laser / Fire shot
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(850, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.32);
+
+    gain.gain.setValueAtTime(0.28, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.32);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.32);
+
+    // Victory fanfare chords after shot
+    setTimeout(() => {
+      [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+        const vOsc = ctx.createOscillator();
+        const vGain = ctx.createGain();
+        vOsc.type = "triangle";
+        vOsc.frequency.value = freq;
+        vGain.gain.setValueAtTime(0.16, ctx.currentTime + idx * 0.07);
+        vGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.07 + 0.7);
+        vOsc.connect(vGain);
+        vGain.connect(ctx.destination);
+        vOsc.start(ctx.currentTime + idx * 0.07);
+        vOsc.stop(ctx.currentTime + idx * 0.07 + 0.75);
+      });
+    }, 150);
+  } catch (e) {
+    console.warn("Audio FX note:", e);
+  }
+}
+
+// Trigger BOOYAH shot interaction
+window.triggerBooyahShot = function (e) {
+  playBooyahSound();
+
+  // Screen shake
+  singleWomanStage.classList.remove("screen-shake");
+  void singleWomanStage.offsetWidth;
+  singleWomanStage.classList.add("screen-shake");
+
+  // Flame Confetti explosion
+  if (typeof confetti === "function") {
+    confetti({
+      particleCount: 80,
+      spread: 100,
+      origin: { y: 0.6 },
+      colors: ["#ff1a1a", "#ff7700", "#ffcc00", "#ffffff", "#ff4b72"]
+    });
+  }
+
+  // Floating flame emoji icons
+  const x = e ? e.clientX : window.innerWidth / 2;
+  const y = e ? e.clientY : window.innerHeight / 2;
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      const offsetX = (Math.random() - 0.5) * 80;
+      createFloatingFlameHeart(x + offsetX, y);
+    }, i * 60);
+  }
+
+  showToast(`🔥 BOOYAH! BẮN TRÚNG 100% TIM CỦA ${currentPerson.name.toUpperCase()}! 🔥`);
+};
+
+function createFloatingFlameHeart(x, y) {
+  const icons = ["🔥", "👑", "💖", "💥", "🏆", "✨", "🎯"];
+  const icon = icons[Math.floor(Math.random() * icons.length)];
+
+  const span = document.createElement("span");
+  span.className = "floating-click-heart";
+  span.textContent = icon;
+  span.style.left = `${x}px`;
+  span.style.top = `${y}px`;
+
+  const tx = (Math.random() - 0.5) * 140 + "px";
+  const rot = (Math.random() - 0.5) * 80 + "deg";
+  span.style.setProperty("--tx", tx);
+  span.style.setProperty("--rot", rot);
+
+  document.body.appendChild(span);
+  setTimeout(() => { span.remove(); }, 1200);
+}
+
 // Open modal for the currently active person
 window.openActivePersonModal = function () {
   if (currentPerson && currentPerson.key) {
@@ -281,7 +384,7 @@ changeUserBtn.addEventListener("click", () => {
 });
 
 /* ========================================================
-   2. PETAL & PARTICLE ANIMATION CANVAS
+   2. PETAL & FLAME EMBERS PARTICLE ANIMATION CANVAS
    ======================================================== */
 const canvas = document.getElementById("petalCanvas");
 const ctx = canvas.getContext("2d");
@@ -302,14 +405,29 @@ class Petal {
   reset() {
     this.x = Math.random() * width;
     this.y = Math.random() * -height;
-    this.size = Math.random() * 10 + 8;
+    this.size = Math.random() * 10 + 7;
     this.speedY = Math.random() * 1.5 + 1;
     this.speedX = Math.random() * 1.2 - 0.6;
     this.angle = Math.random() * 360;
     this.spinSpeed = (Math.random() - 0.5) * 2;
     this.opacity = Math.random() * 0.6 + 0.3;
-    this.type = Math.random() > 0.35 ? "petal" : Math.random() > 0.5 ? "heart" : "sparkle";
-    this.color = Math.random() > 0.5 ? "#ff8da1" : "#ffb6c1";
+    // Types: petal, heart, sparkle, flame (Free Fire rising ember)
+    const rand = Math.random();
+    if (rand < 0.25) {
+      this.type = "flame";
+      this.y = height + Math.random() * 20; // starts from bottom rising up!
+      this.speedY = -(Math.random() * 1.8 + 0.8);
+      this.color = Math.random() > 0.5 ? "#ff5500" : "#ffbb00";
+    } else if (rand < 0.6) {
+      this.type = "petal";
+      this.color = Math.random() > 0.5 ? "#ff8da1" : "#ffb6c1";
+    } else if (rand < 0.8) {
+      this.type = "heart";
+      this.color = "#ff5376";
+    } else {
+      this.type = "sparkle";
+      this.color = "#ffdf7e";
+    }
   }
 
   update() {
@@ -317,9 +435,16 @@ class Petal {
     this.x += Math.sin(this.angle * (Math.PI / 180)) * 0.8 + this.speedX;
     this.angle += this.spinSpeed;
 
-    if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
-      this.reset();
-      this.y = -10;
+    // Bounds check
+    if (this.type === "flame") {
+      if (this.y < -20 || this.x < -20 || this.x > width + 20) {
+        this.reset();
+      }
+    } else {
+      if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
+        this.reset();
+        this.y = -10;
+      }
     }
   }
 
@@ -329,7 +454,15 @@ class Petal {
     ctx.rotate((this.angle * Math.PI) / 180);
     ctx.globalAlpha = this.opacity;
 
-    if (this.type === "petal") {
+    if (this.type === "flame") {
+      // Free Fire rising ember spark
+      ctx.fillStyle = this.color;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = "#ff7700";
+      ctx.beginPath();
+      ctx.arc(0, 0, this.size * 0.35, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (this.type === "petal") {
       ctx.fillStyle = this.color;
       ctx.beginPath();
       ctx.moveTo(0, 0);

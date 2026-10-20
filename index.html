@@ -121,53 +121,72 @@
     <!-- Dedicated Single Woman Showcase Section (Only shows the active person, NO other names) -->
     <section class="dedicated-showcase-section" id="dedicatedShowcase">
       <!-- Main Showcase Stage for the selected person ONLY -->
-      <article class="single-woman-stage" id="singleWomanStage">
+      <article class="single-woman-stage ff-stage" id="singleWomanStage">
         <div class="stage-glow-ambient" id="stageAmbientGlow"></div>
         
+        <!-- BOOYAH! Victory Banner Free Fire Style -->
+        <div class="ff-booyah-banner">
+          <div class="booyah-wings left-wing"></div>
+          <div class="booyah-content">
+            <span class="booyah-flame-icon">🔥</span>
+            <span class="booyah-text">BOOYAH! TOP 1 NỮ THẦN</span>
+            <span class="booyah-flame-icon">🔥</span>
+          </div>
+          <div class="booyah-wings right-wing"></div>
+        </div>
+
         <div class="stage-content">
-          <!-- Badge -->
-          <div class="stage-badge-wrap">
-            <span class="stage-badge" id="showcaseBadge">Dịu Dàng & Tinh Tế</span>
+          <!-- Rank Thách Đấu Badge Free Fire Style -->
+          <div class="ff-rank-badge">
+            <i class="fa-solid fa-fire-flame-curved rank-fire"></i>
+            <span id="rankTitle">RANK THÁCH ĐẤU • CHIẾN THẦN 20/10</span>
+            <i class="fa-solid fa-trophy rank-trophy"></i>
           </div>
 
-          <!-- Avatar & Visual Centerpiece -->
-          <div class="stage-avatar-container">
-            <div class="stage-halo-ring"></div>
+          <!-- Badge -->
+          <div class="stage-badge-wrap">
+            <span class="stage-badge" id="showcaseBadge">Mảnh Ghép Yêu Thương</span>
+          </div>
+
+          <!-- Avatar & Visual Centerpiece with Free Fire Flame Ring -->
+          <div class="stage-avatar-container ff-avatar-container">
+            <div class="ff-flame-aura"></div>
+            <div class="stage-halo-ring ff-halo"></div>
             <div class="stage-avatar-circle" id="showcaseAvatar">
-              <i class="fa-solid fa-spa"></i>
+              <i class="fa-solid fa-heart"></i>
             </div>
-            <div class="floating-crown">👑</div>
+            <div class="floating-crown ff-crown">👑</div>
           </div>
 
           <!-- Name & Title -->
-          <h2 class="stage-name" id="showcaseName">Nguyễn Thị Ty</h2>
-          <p class="stage-role" id="showcaseRole">Tươi tắn &bull; Duyên dáng &bull; Tràn đầy năng lượng</p>
+          <h2 class="stage-name ff-name" id="showcaseName">Nguyễn Thị Ty</h2>
+          <p class="stage-role ff-role" id="showcaseRole">T.Y = Tình Yêu &bull; Duyên dáng &bull; Ngọt ngào đong đầy</p>
 
           <!-- Quote -->
-          <div class="stage-quote-box">
+          <div class="stage-quote-box ff-quote-box">
             <i class="fa-solid fa-quote-left quote-mark"></i>
-            <p id="showcaseQuote">"Nụ cười của bạn là ánh nắng ban mai thắp sáng mỗi ngày!"</p>
+            <p id="showcaseQuote">"T.Y không chỉ là một cái tên, mà là viết tắt của hai tiếng 'Tình Yêu' ngọt ngào và ấm áp nhất!"</p>
           </div>
 
           <!-- Dedicated Wishes Board (Directly in UI) -->
-          <div class="dedicated-wishes-board">
+          <div class="dedicated-wishes-board ff-wishes-board">
             <h4 class="wishes-board-title">
-              <i class="fa-solid fa-envelope-open-text"></i> Lời Chúc Gửi Đến <span id="wishesTargetName">Nguyễn Thị Ty</span>
+              <i class="fa-solid fa-shield-heart" style="color: #ff9900;"></i> Bảng Chỉ Số Yêu Thương Gửi Đến <span id="wishesTargetName">Nguyễn Thị Ty</span>
             </h4>
             <div class="dedicated-wishes-grid" id="showcaseWishesList">
               <!-- Dynamically populated -->
             </div>
           </div>
 
-          <!-- Interactive Actions -->
+          <!-- Interactive Actions Free Fire Style -->
           <div class="stage-actions">
-            <button class="btn btn-primary" onclick="openActivePersonModal()">
-              <i class="fa-solid fa-envelope"></i>
-              <span>Mở Thiệp Phong Bì & Pháo Hoa</span>
+            <button class="btn btn-primary ff-btn-fire" onclick="triggerBooyahShot(event)">
+              <i class="fa-solid fa-crosshairs"></i>
+              <span>Nạp Đạn Bắn Tim BOOYAH!</span>
             </button>
-            <button class="btn btn-glass" onclick="triggerConfettiBurst()">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
-              <span>Thả Hoa Chúc Mừng</span>
+            <button class="btn btn-glass" onclick="openActivePersonModal()">
+              <i class="fa-solid fa-envelope-open"></i>
+              <span>Mở Hòm Tiếp Tế Yêu Thương</span>
             </button>
           </div>
         </div>

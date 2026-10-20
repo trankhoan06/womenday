@@ -56,16 +56,22 @@
             type="text" 
             id="visitorNameInput" 
             class="name-input" 
-            placeholder="Ví dụ: Ty, Liên, Vàng, Linh..." 
+            placeholder="Nhập tên: Ty, Liên, Vàng hoặc Linh..." 
             autocomplete="off" 
             required 
             autofocus
           />
         </div>
 
+        <!-- Error alert message when name is not in the 4 -->
+        <div id="nameErrorAlert" class="name-error-alert" style="display: none;">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>Tên chưa đúng! Trang web chỉ dành riêng cho: <strong>Nguyễn Thị Ty, Trần Liên, Trần Ngân Vàng, Hồ Thị Diệu Linh</strong>. Vui lòng nhập đúng tên của bạn nhé!</span>
+        </div>
+
         <!-- Quick selection shortcuts for convenience -->
         <div class="quick-picks">
-          <span class="quick-label">Hoặc chọn nhanh:</span>
+          <span class="quick-label">Hoặc bấm chọn tên của bạn:</span>
           <div class="chips-container">
             <button type="button" class="name-chip" onclick="quickSelectName('Nguyễn Thị Ty')">Nguyễn Thị Ty</button>
             <button type="button" class="name-chip" onclick="quickSelectName('Trần Liên')">Trần Liên</button>
@@ -75,7 +81,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary welcome-submit-btn">
-          <span>Khám Phá Món Quà</span>
+          <span>Khám Phá Món Quà Của Tôi</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </form>
@@ -87,17 +93,17 @@
     <header class="hero-section">
       <div class="badge-pill floating-glow">
         <span class="sparkle-icon">✨</span>
-        <span id="badgeHeadline">20/10 &bull; Ngày Tôn Vinh Phụ Nữ</span>
+        <span id="badgeHeadline">20/10 &bull; Dành Riêng Cho Bạn</span>
         <span class="sparkle-icon">✨</span>
       </div>
 
       <h1 class="main-title">
         <span class="title-sub" id="greetingUserSubtitle">Gửi trọn ngàn yêu thương đến</span>
-        <span class="title-gradient" id="greetingUserTitle">Những Bông Hoa Rực Rỡ Nhất</span>
+        <span class="title-gradient" id="greetingUserTitle">Người Phụ Nữ Tuyệt Vời</span>
       </h1>
 
       <p class="hero-desc" id="heroDescText">
-        Chúc những người phụ nữ tuyệt vời luôn ngập tràn hạnh phúc, nụ cười rạng rỡ và thành công viên mãn trên từng chặng đường!
+        Chúc bạn luôn ngập tràn hạnh phúc, nụ cười rạng rỡ và thành công viên mãn trên từng chặng đường!
       </p>
 
       <div class="hero-actions">
@@ -112,28 +118,9 @@
       </div>
     </header>
 
-    <!-- Dedicated Single Woman Showcase Section (Only shows the active person) -->
+    <!-- Dedicated Single Woman Showcase Section (Only shows the active person, NO other names) -->
     <section class="dedicated-showcase-section" id="dedicatedShowcase">
-      <!-- Person Switcher Navigation Bar -->
-      <div class="person-switch-bar">
-        <span class="switch-title"><i class="fa-solid fa-sparkles"></i> Món Quà Dành Cho:</span>
-        <div class="switch-pills-list">
-          <button type="button" class="switch-pill" data-key="ty" onclick="switchPerson('ty')">
-            <i class="fa-solid fa-spa"></i> Nguyễn Thị Ty
-          </button>
-          <button type="button" class="switch-pill" data-key="lien" onclick="switchPerson('lien')">
-            <i class="fa-solid fa-feather-pointed"></i> Trần Liên
-          </button>
-          <button type="button" class="switch-pill" data-key="vang" onclick="switchPerson('vang')">
-            <i class="fa-solid fa-gem"></i> Trần Ngân Vàng
-          </button>
-          <button type="button" class="switch-pill" data-key="linh" onclick="switchPerson('linh')">
-            <i class="fa-solid fa-wand-magic"></i> Hồ Thị Diệu Linh
-          </button>
-        </div>
-      </div>
-
-      <!-- Main Showcase Stage for the selected person -->
+      <!-- Main Showcase Stage for the selected person ONLY -->
       <article class="single-woman-stage" id="singleWomanStage">
         <div class="stage-glow-ambient" id="stageAmbientGlow"></div>
         

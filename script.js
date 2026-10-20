@@ -1,6 +1,6 @@
 /**
  * Women's Day Celebration Web App
- * Dedicated to: Nguyễn Thị Ty, Trần Liên, Trần Ngân Vàng, Hồ Thị Diệu Linh
+ * Dedicated exclusively to: Nguyễn Thị Ty, Trần Liên, Trần Ngân Vàng, Hồ Thị Diệu Linh
  */
 
 // 1. Data for 4 Honored Women
@@ -79,7 +79,7 @@ const womenData = {
   }
 };
 
-// Current active person being displayed (default: ty)
+// Current active person being displayed
 let currentPerson = womenData.ty;
 
 // Random wishes pool for "Rút Quẻ May Mắn"
@@ -93,7 +93,7 @@ const randomWishes = [
 ];
 
 /* ========================================================
-   NAME NORMALIZATION & MATCHING (Accents, Case, Nicknames)
+   NAME NORMALIZATION & STRICT MATCHING (Only 4 Women)
    ======================================================== */
 function normalizeText(str) {
   if (!str) return "";
@@ -110,6 +110,7 @@ function matchPerson(rawName) {
   const norm = normalizeText(rawName);
   if (!norm) return null;
 
+  // Strict keyword matching for the 4 women
   if (norm.includes("ty")) return "ty";
   if (norm.includes("lien")) return "lien";
   if (norm.includes("vang")) return "vang";
@@ -121,6 +122,7 @@ function matchPerson(rawName) {
 // Elements
 const welcomeModal = document.getElementById("welcomeModal");
 const visitorNameInput = document.getElementById("visitorNameInput");
+const nameErrorAlert = document.getElementById("nameErrorAlert");
 const badgeHeadline = document.getElementById("badgeHeadline");
 const greetingUserSubtitle = document.getElementById("greetingUserSubtitle");
 const greetingUserTitle = document.getElementById("greetingUserTitle");
@@ -140,6 +142,12 @@ const stageAmbientGlow = document.getElementById("stageAmbientGlow");
 const personalLetterContent = document.getElementById("personalLetterContent");
 const singleWomanStage = document.getElementById("singleWomanStage");
 
+// Clear error state on input
+visitorNameInput.addEventListener("input", () => {
+  if (nameErrorAlert) nameErrorAlert.style.display = "none";
+  visitorNameInput.classList.remove("shake-input");
+});
+
 // Quick selection handler
 window.quickSelectName = function (name) {
   visitorNameInput.value = name;
@@ -150,24 +158,43 @@ window.quickSelectName = function (name) {
 window.handleNameSubmit = function (e) {
   if (e) e.preventDefault();
   const rawName = visitorNameInput.value.trim();
-  if (!rawName) return;
+  if (!rawName) {
+    showInputError("Vui lòng nhập tên của bạn nhé!");
+    return;
+  }
   processEnteredName(rawName);
 };
 
-// Switch active person (via pill buttons)
-window.switchPerson = function (key) {
-  if (womenData[key]) {
-    renderPersonStage(womenData[key]);
-    triggerConfettiBurst();
-    showToast(`✨ Đang xem món quà của ${womenData[key].name}`);
+function showInputError(msg) {
+  if (nameErrorAlert) {
+    if (msg) {
+      nameErrorAlert.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> <span>${msg}</span>`;
+    }
+    nameErrorAlert.style.display = "flex";
   }
-};
+  visitorNameInput.classList.remove("shake-input");
+  void visitorNameInput.offsetWidth; // trigger reflow
+  visitorNameInput.classList.add("shake-input");
+  visitorNameInput.focus();
+}
 
 // Core logic when a name is processed
 function processEnteredName(rawName) {
   const matchedKey = matchPerson(rawName);
+
+  // STRICT VALIDATION: If not in the 4 women, DO NOT LET IN!
+  if (!matchedKey || !womenData[matchedKey]) {
+    showInputError("Tên chưa đúng! Trang web chỉ dành riêng cho: <strong>Nguyễn Thị Ty, Trần Liên, Trần Ngân Vàng, Hồ Thị Diệu Linh</strong>. Vui lòng nhập đúng tên nhé!");
+    return false;
+  }
+
+  // Hide any previous error
+  if (nameErrorAlert) nameErrorAlert.style.display = "none";
+  visitorNameInput.classList.remove("shake-input");
+
+  // Valid person! Close welcome modal
   welcomeModal.classList.add("hidden");
-  sessionStorage.setItem("womenday_user_name", rawName);
+  sessionStorage.setItem("womenday_user_key", matchedKey);
 
   // Play romantic music if not already playing
   if (!isPlaying) {
@@ -177,53 +204,20 @@ function processEnteredName(rawName) {
     }).catch(() => {});
   }
 
-  if (matchedKey && womenData[matchedKey]) {
-    const person = womenData[matchedKey];
-    renderPersonStage(person);
-    showToast(`🌸 Xin chào ${person.name}! Món quà đặc biệt dành riêng cho bạn!`);
-    triggerConfettiBurst();
+  const person = womenData[matchedKey];
+  renderPersonStage(person);
+  showToast(`🌸 Xin chào ${person.name}! Món quà đặc biệt dành riêng cho bạn!`);
+  triggerConfettiBurst();
 
-    // Auto open modal envelope after brief scroll
+  // Scroll to stage and open envelope modal
+  setTimeout(() => {
+    singleWomanStage.scrollIntoView({ behavior: "smooth", block: "center" });
     setTimeout(() => {
-      singleWomanStage.scrollIntoView({ behavior: "smooth", block: "center" });
-      setTimeout(() => {
-        openModal(person.key);
-      }, 650);
-    }, 400);
+      openModal(person.key);
+    }, 600);
+  }, 350);
 
-  } else {
-    // Custom name not in the 4
-    const capitalizedName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
-    const customPerson = {
-      key: "custom",
-      name: capitalizedName,
-      badge: "Người Phụ Nữ Tuyệt Vời",
-      icon: "fa-heart",
-      gradient: "linear-gradient(135deg, #ff4b72 0%, #845ec2 100%)",
-      glowColor: "rgba(255, 75, 114, 0.45)",
-      role: "Xinh đẹp • Tự tin • Tràn ngập yêu thương",
-      greeting: `Thân gửi ${capitalizedName},`,
-      quote: `Nụ cười của ${capitalizedName} là điều tuyệt vời nhất!`,
-      personalLetter: `Chúc ${capitalizedName} một ngày Phụ Nữ 20/10 ngập tràn niềm vui, nhận được thật nhiều hoa thơm, quà đẹp và luôn được nâng niu, trân trọng mỗi ngày!`,
-      wishes: [
-        "🌸 Luôn xinh đẹp rạng rỡ, trẻ trung và yêu đời mỗi sớm mai.",
-        "💖 Hạnh phúc ngập tràn, vạn sự hanh thông và bình an bên người thân yêu.",
-        "✨ Công việc thuận lợi, tài lộc dồi dào và gặt hái nhiều thành công.",
-        "🎁 Luôn là phiên bản tuyệt vời nhất của chính mình và được yêu thương!"
-      ]
-    };
-
-    renderPersonStage(customPerson);
-    showToast(`💐 Chào mừng ${capitalizedName}! Món quà dành riêng cho bạn!`);
-    triggerConfettiBurst();
-
-    setTimeout(() => {
-      singleWomanStage.scrollIntoView({ behavior: "smooth", block: "center" });
-      setTimeout(() => {
-        openActivePersonModal();
-      }, 650);
-    }, 400);
-  }
+  return true;
 }
 
 // Render the stage for a single person ONLY
@@ -262,50 +256,28 @@ function renderPersonStage(person) {
   // Personal Letter update
   personalLetterContent.textContent = person.personalLetter;
 
-  // Update switcher pills active state
-  document.querySelectorAll(".switch-pill").forEach((pill) => {
-    if (pill.getAttribute("data-key") === person.key) {
-      pill.classList.add("active");
-    } else {
-      pill.classList.remove("active");
-    }
-  });
-
   // Micro animation: gentle flash to indicate refresh
   singleWomanStage.style.animation = "none";
-  void singleWomanStage.offsetWidth; // trigger reflow
+  void singleWomanStage.offsetWidth;
   singleWomanStage.style.animation = "modalPopIn 0.45s ease";
 }
 
 // Open modal for the currently active person
 window.openActivePersonModal = function () {
-  if (currentPerson.key && womenData[currentPerson.key]) {
+  if (currentPerson && currentPerson.key) {
     openModal(currentPerson.key);
-  } else {
-    // Custom person modal
-    modalName.textContent = currentPerson.name;
-    modalTag.textContent = currentPerson.badge;
-    modalIconWrap.innerHTML = `<i class="fa-solid ${currentPerson.icon}"></i>`;
-    modalIconWrap.style.background = currentPerson.gradient;
-    modalWishText.innerHTML = `<strong>${currentPerson.greeting}</strong><br><br>${currentPerson.personalLetter}`;
-    modalWishesBullets.innerHTML = currentPerson.wishes
-      .map((w) => `
-        <div class="wishes-item">
-          <i class="fa-solid fa-sparkles"></i>
-          <span>${w}</span>
-        </div>
-      `)
-      .join("");
-    wishModal.classList.add("active");
-    triggerConfettiBurst();
   }
 };
 
 // Re-open welcome modal to change user
 changeUserBtn.addEventListener("click", () => {
   welcomeModal.classList.remove("hidden");
+  if (nameErrorAlert) nameErrorAlert.style.display = "none";
+  visitorNameInput.classList.remove("shake-input");
   visitorNameInput.value = "";
-  visitorNameInput.focus();
+  setTimeout(() => {
+    visitorNameInput.focus();
+  }, 100);
 });
 
 /* ========================================================
@@ -383,7 +355,7 @@ class Petal {
   }
 }
 
-const petalsCount = window.innerWidth < 768 ? 30 : 60;
+const petalsCount = window.innerWidth < 768 ? 25 : 55;
 const petals = Array.from({ length: petalsCount }, () => new Petal());
 
 function animatePetals() {
@@ -475,16 +447,16 @@ document.addEventListener("keydown", (e) => {
 window.triggerConfettiBurst = function () {
   if (typeof confetti === "function") {
     confetti({
-      particleCount: 65,
+      particleCount: 60,
       angle: 60,
-      spread: 65,
+      spread: 60,
       origin: { x: 0.1, y: 0.7 },
       colors: ["#ff4b72", "#ff758c", "#ffc75f", "#ffffff", "#845ec2"]
     });
     confetti({
-      particleCount: 65,
+      particleCount: 60,
       angle: 120,
-      spread: 65,
+      spread: 60,
       origin: { x: 0.9, y: 0.7 },
       colors: ["#ff4b72", "#ff758c", "#ffc75f", "#ffffff", "#845ec2"]
     });
@@ -498,7 +470,7 @@ const celebrateBtn = document.getElementById("celebrateBtn");
 celebrateBtn.addEventListener("click", (e) => {
   createFloatingHeart(e.clientX, e.clientY);
   triggerConfettiBurst();
-  showToast("🎉 Chúc mừng ngày phụ nữ tuyệt vời nhất! 💐");
+  showToast(`🎉 Chúc ${currentPerson.name} ngày phụ nữ tuyệt vời nhất! 💐`);
 
   if (!isPlaying) {
     bgMusic.play().then(() => {
@@ -543,9 +515,9 @@ sendLoveBtn.addEventListener("click", (e) => {
   heartCountEl.textContent = heartCount.toLocaleString("vi-VN");
   localStorage.setItem("womenday_heart_count", heartCount.toString());
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     setTimeout(() => {
-      const offsetX = (Math.random() - 0.5) * 60;
+      const offsetX = (Math.random() - 0.5) * 50;
       createFloatingHeart(e.clientX + offsetX, e.clientY);
     }, i * 80);
   }
@@ -563,8 +535,8 @@ function createFloatingHeart(x, y) {
   span.style.left = `${x}px`;
   span.style.top = `${y}px`;
 
-  const tx = (Math.random() - 0.5) * 120 + "px";
-  const rot = (Math.random() - 0.5) * 70 + "deg";
+  const tx = (Math.random() - 0.5) * 100 + "px";
+  const rot = (Math.random() - 0.5) * 60 + "deg";
   span.style.setProperty("--tx", tx);
   span.style.setProperty("--rot", rot);
 
@@ -603,5 +575,13 @@ function showToast(message) {
   }, 2800);
 }
 
-// Initial render for default person (ty)
-renderPersonStage(womenData.ty);
+// Check if a valid session key was already chosen, otherwise keep welcome modal open
+const savedKey = sessionStorage.getItem("womenday_user_key");
+if (savedKey && womenData[savedKey]) {
+  welcomeModal.classList.add("hidden");
+  renderPersonStage(womenData[savedKey]);
+} else {
+  // Show welcome modal by default
+  welcomeModal.classList.remove("hidden");
+  renderPersonStage(womenData.ty);
+}
